@@ -1,0 +1,24 @@
+.flex-izquierda{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.plataforma-casco{
+     margin-top: 100px;
+     margin-left: 50px;
+}
+
+.centro-1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    height: 500px;
+}
+h3{
+    color: white;
+
+}
+.caja{
+    height: 500px;
+}
