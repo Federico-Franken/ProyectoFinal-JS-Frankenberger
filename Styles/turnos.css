@@ -4,7 +4,6 @@
     align-items: center;
 }
 .plataforma-casco{
-     margin-top: 100px;
      margin-left: 50px;
 }
 
@@ -20,5 +19,8 @@ h3{
 
 }
 .caja{
-    height: 500px;
+    height: 800px;
+}
+.h3-upload{
+    color: black;
 }
