@@ -24,7 +24,7 @@ cargaCliente.addEventListener("submit", (e)=>{
 
 function cargarTurnos () {
     cargarTurnos.innerHTML = ""
-
+    limpiarTurnos()
     const Clientes2 = JSON.parse(localStorage.getItem("cliente")) ||[]
     Clientes2.forEach((elemento) => {
     let content = document.createElement("div")
@@ -41,3 +41,8 @@ function cargarTurnos () {
 }
 cargarTurnos()
 
+function limpiarTurnos () {
+    while (cargaTurnos.firstChild){
+        cargaTurnos.removeChild(cargaTurnos.firstChild)
+    }
+}
