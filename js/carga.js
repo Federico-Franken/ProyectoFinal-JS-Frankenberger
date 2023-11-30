@@ -1,5 +1,7 @@
 
 const cargaCliente = document.querySelector("#cargaCliente")
+const cargaTurnos = document.getElementById("cargaTurnos")
+
 cargaCliente.addEventListener("submit", (e)=>{
     e.preventDefault()
     const dia = document.querySelector("#dia").value
@@ -15,22 +17,27 @@ cargaCliente.addEventListener("submit", (e)=>{
 
     Clientes.push({dia: dia, nombre: nombre, email: email, telefono: telefono})
     localStorage.setItem("cliente", JSON.stringify(Clientes))
-    alert("Turno ingresado correctamente!")
+    
+
+    cargarTurnos()
 })
 
-const cargaTurnos = document.getElementById("cargaTurnos")
-const Clientes2 = JSON.parse(localStorage.getItem("cliente"))
+function cargarTurnos () {
+    cargarTurnos.innerHTML = ""
 
-
-Clientes2.forEach((elemento) => {
+    const Clientes2 = JSON.parse(localStorage.getItem("cliente")) ||[]
+    Clientes2.forEach((elemento) => {
     let content = document.createElement("div")
+    content.className = "turnos-styles col-2"
     content.innerHTML = `
-    <p>${elemento.dia}</p>
-    <p>${elemento.nombre}</p>
-    <p>${elemento.email}</p>
-    <p>${elemento.telefono}</p>
+    <p>Día: ${elemento.dia}</p>
+    <p>Nombre: ${elemento.nombre}</p>
+    <p>Email: ${elemento.email}</p>
+    <p>Teléfono: ${elemento.telefono}</p>
     
     `
     cargaTurnos.append(content);
 });
+}
+cargarTurnos()
 
