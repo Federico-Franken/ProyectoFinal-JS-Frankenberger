@@ -60,7 +60,7 @@ function limpiarTurnos () {
 
 function borrarTurnos (nombre) {
     const borro = JSON.parse(localStorage.getItem("cliente")) || []
-    const indexTurno = borro.find (x => x.nombre === nombre)
+    const indexTurno = borro.findIndex (x => x.nombre === nombre)
     if (indexTurno !== -1){
         borro.splice(indexTurno,1)
         localStorage.setItem("cliente", JSON.stringify(borro))
