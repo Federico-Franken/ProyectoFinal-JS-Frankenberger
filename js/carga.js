@@ -18,31 +18,65 @@ cargaCliente.addEventListener("submit", (e)=>{
     Clientes.push({dia: dia, nombre: nombre, email: email, telefono: telefono})
     localStorage.setItem("cliente", JSON.stringify(Clientes))
     
-
-    cargarTurnos()
+   
+   
 })
+
+cargarTurnos()
+cargaCliente.addEventListener("submit", cargarTurnos)
 
 function cargarTurnos () {
     cargarTurnos.innerHTML = ""
     limpiarTurnos()
     const Clientes2 = JSON.parse(localStorage.getItem("cliente")) ||[]
     Clientes2.forEach((elemento) => {
+
     let content = document.createElement("div")
-    content.className = "turnos-styles col-2"
+    content.className = "turnos-styles col-3"
     content.innerHTML = `
     <p>Día: ${elemento.dia}</p>
     <p>Nombre: ${elemento.nombre}</p>
     <p>Email: ${elemento.email}</p>
     <p>Teléfono: ${elemento.telefono}</p>
-    
+    <span class="delete-turno"> ❌ </span>
+
     `
     cargaTurnos.append(content);
+
+    let eliminar = content.querySelector(".delete-turno")
+    eliminar.addEventListener("click", () => {
+        borrarTurnos(elemento.nombre)
+    })
+    
 });
 }
-cargarTurnos()
+
 
 function limpiarTurnos () {
     while (cargaTurnos.firstChild){
         cargaTurnos.removeChild(cargaTurnos.firstChild)
     }
 }
+
+function borrarTurnos (nombre) {
+    const borro = JSON.parse(localStorage.getItem("cliente")) || []
+    const indexTurno = borro.find (x => x.nombre === nombre)
+    if (indexTurno !== -1){
+        borro.splice(indexTurno,1)
+        localStorage.setItem("cliente", JSON.stringify(borro))
+
+        cargarTurnos();
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
