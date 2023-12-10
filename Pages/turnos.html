@@ -28,9 +28,10 @@
     
     
     </header>
+
     <section class="plataforma-casco container-fluid" id="plataforma">
         <div class="row flex-izquierda">
-            <div class=" border centro-1 col-2">
+            <div class="centro-1 col-2">
                     <div class="row margin-bot">
                         <h3>DÍAS</h3>
                     </div>
@@ -53,43 +54,62 @@
                         <button>Sábado</button>
                     </div>
             </div>
-            <div class="col-9 border caja text-center centrado">
-                <form class="col-3" id="cargaCliente" >
-                    <h3 class="h3-upload">Carga de Turnos.com</h3>
-                    <div class="col-12 sub-form">
-                        <div class=" m-5 mb-3">
-                            <label class="form-label">Día</label>
-                            <input type="text" class="form-control" id="dia" required autofocus aria-describedby="Día">
-                            
+            <div class="col-10 caja text-center centrado-form">
+                <div col-3>
+                    <form class="form-clas" id="cargaCliente" >
+                        <h3 class="h3-upload">CARGA</h3>
+                        <div class=" sub-form">
+                            <div class=" m-5 mb-3">
+                                <label class="form-label">Día</label>
+                                <!-- <input type="text" class="form-control" id="dia" required autofocus aria-describedby="Día"> -->
+                                <select class="form-control" id="dia">
+                                    <option>Lunes</option>
+                                    <option>Martes</option>
+                                    <option>Miercoles</option>
+                                    <option>Jueves</option>
+                                    <option>Viernes</option>
+                                    <option>Sabado</option>
+                                  </select>
+    
+                            </div>
+                            <div class=" m-5 mb-3">
+                              <label  class="form-label">Nombre</label>
+                              <input type="text" class="form-control" id="nombre" required aria-describedby="Nombre">
+                              
+                            </div>
+                            <div class=" m-5 mb-3">
+                              <label  class="form-label">Email</label>
+                              <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class=" m-5 mb-3">
+                                <label  class="form-label">Teléfono</label>
+                                <input type="number" class="form-control" id="telefono" required>
+                            </div>
+                            <div class="center">
+                            <button  type="submit" value="Registro" class="btn btn-primary">Registrar turno</button>
+                            </div>
                         </div>
-                        <div class=" m-5 mb-3">
-                          <label  class="form-label">Nombre</label>
-                          <input type="text" class="form-control" id="nombre" required aria-describedby="Nombre">
-                          
-                        </div>
-                        <div class=" m-5 mb-3">
-                          <label  class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class=" m-5 mb-3">
-                            <label  class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" required>
-                        </div>
-                        <div class="center">
-                        <button  type="submit" value="Registro" class="btn btn-primary">Registrar turno</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="col-9">
-                    <div class="container-fluid">
-                        <div class="row" id="cargaTurnos"></div>
-                    </div>
+                    </form>
                 </div>
-               
-                
+                <div class="col-9 on-top">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>DÍA</th>
+                                <th>NOMBRE</th>
+                                <th>EMAIL</th>
+                                <th>TELÉFONO</th>
+                            </tr>
+                        </thead>
+                        <TBody id="cargaTurnos">
+
+                        </TBody>
+                    </table>
+                   <!--  <div class="container-fluid">
+                        <div class="row" id="cargaTurnos"></div>
+                    </div> -->
+                </div>
             </div>
-            
-           
         </div>
     </section>
 
