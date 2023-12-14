@@ -34,8 +34,26 @@ h3{
     margin-top: 90px;
 }
 .tr-dom{
-    height: 100px;
-
+    font-weight: bold;
+    background-color: white;
+}
+table{
+    border-collapse: collapse ;
+}
+th, td {
+    padding: 30px;
+    min-width: 200px;
+}
+thead{
+    background-color: #00304E;
+    border-bottom: solid 10px black ;
+    color: white;
+}
+tr:nth-child(even){
+    background-color: #ddd;
+}
+tr:hover td{
+    background-color: #557996;
 }
 .centrado-form{
     display: flex;
