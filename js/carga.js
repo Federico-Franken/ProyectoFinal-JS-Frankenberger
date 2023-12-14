@@ -65,10 +65,15 @@ function cargarBotones () {
         <a class="nav-link" href="#">${dia}</a>
         `
         filtro.addEventListener("click",()=>{
-
-            const turnosfiltrados = filtrarTurnos(dia)
+            if ( dia != "TODOS"){
+                const turnosfiltrados = filtrarTurnos(dia)
             
-            cargarTurnos(turnosfiltrados)
+                cargarTurnos(turnosfiltrados)
+            }else{
+                const todos = obternerTurnos()
+                cargarTurnos(todos)
+            }
+            
             
         })
         contenedorFiltros.appendChild(filtro)
@@ -78,6 +83,8 @@ function cargarBotones () {
 function filtrarTurnos (filtrar){
     const turnosFiltrados = obternerTurnos().filter((turno)=>turno.dia === filtrar)
     return turnosFiltrados
+    
+
 }
 
 function obternerTurnos (){
