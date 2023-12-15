@@ -93,6 +93,8 @@ function obternerTurnos (){
 
 cargarBotones()
 
+cargarTurnos(obternerTurnos())
+
 cargaCliente.addEventListener("submit", (e)=>{
     e.preventDefault()
     const dia = document.querySelector("#dia").value
@@ -103,7 +105,13 @@ cargaCliente.addEventListener("submit", (e)=>{
     const Clientes = JSON.parse(localStorage.getItem("cliente")) || []
     const isClienteRegistered = Clientes.find (client => client.email === email)
     if (isClienteRegistered){
-        return alert ("El cliente ya cuenta con un turno asignado!")
+        return Swal.fire({
+            title: 'Error!',
+            text: 'El cliente ya se encuentra cargado',
+            icon: 'error',
+            confirmButtonText: 'Continuar'
+          })
+        
     }
 
     Clientes.push({dia: dia, nombre: nombre, email: email, telefono: telefono})
@@ -115,7 +123,6 @@ cargaCliente.addEventListener("submit", (e)=>{
 
 })
     
-
 
 
 

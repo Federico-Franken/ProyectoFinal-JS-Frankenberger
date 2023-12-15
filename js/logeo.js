@@ -6,9 +6,15 @@ loginForm.addEventListener("submit", (e)=>{
     const Users = JSON.parse(localStorage.getItem("users")) || []
     const validUser = Users.find(user => user.email === email && user.password === password )
     if (!validUser){
-        return alert ("Usuario y/o contraseña incorrectos!")
+        return Swal.fire({
+            title: 'Error',
+            text: 'El usuario o la contraseña son incorrectos',
+            icon: 'error',
+            confirmButtonText: 'Continuar'
+          })
     }
-    alert (`Bienvenido ${validUser.name}`)
     localStorage.setItem("login_success", JSON.stringify(validUser))
     window.location.href = "turnos.html"
 })
+
+alert (`Bienvenido ${validUser.name}`)
