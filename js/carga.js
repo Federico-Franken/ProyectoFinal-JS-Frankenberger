@@ -19,6 +19,7 @@ function cargarTurnos (turnosfiltrados) {
     <td>${elemento.nombre}</td>
     <td>${elemento.email}</td>
     <td>${elemento.telefono}</td>
+    <td>${elemento.doctor}</td>
     <td>
     <span class="delete-turno"> ❌ </span>
     </td>
@@ -101,6 +102,7 @@ cargaCliente.addEventListener("submit", (e)=>{
     const nombre = document.querySelector("#nombre").value
     const email = document.querySelector("#email").value
     const telefono = document.querySelector("#telefono").value
+    const doctor = document.querySelector("#especialista").value
 
     const Clientes = JSON.parse(localStorage.getItem("cliente")) || []
     const isClienteRegistered = Clientes.find (client => client.email === email)
@@ -113,11 +115,22 @@ cargaCliente.addEventListener("submit", (e)=>{
           })
         
     }
-
-    Clientes.push({dia: dia, nombre: nombre, email: email, telefono: telefono})
-    localStorage.setItem("cliente", JSON.stringify(Clientes))
+    if(dia && nombre && email && telefono && doctor != ""){
+        Clientes.push({dia: dia, nombre: nombre, email: email, telefono: telefono,doctor:doctor})
+        localStorage.setItem("cliente", JSON.stringify(Clientes))
     
-    cargarTurnos(Clientes)
+        cargarTurnos(Clientes)
+    }else{
+        return Swal.fire({
+            title: 'Error!',
+            text: 'Uno o mas campos no se seleccionaron',
+            icon: 'error',
+            confirmButtonText: 'Continuar'
+          })
+    }
+    
+
+    
     
 })
 

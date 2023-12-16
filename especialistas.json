@@ -1,0 +1,32 @@
+[
+    {
+        "nombre" : "Rodrigo Saso",
+        "especialidad" : "Medico" 
+    },
+    {
+        "nombre" : "Iker Ferrero",
+        "especialidad" : "Pediatra" 
+    },
+    {
+        "nombre" : "Fernanda Abellan",
+        "especialidad" : "Dentista" 
+    },
+    {
+        "nombre" : "Antonia Molina",
+        "especialidad" : "Kinesiólogo" 
+    },
+    {
+        "nombre" : "Sandra Latorre",
+        "especialidad" : "Dermatólogo" 
+    },
+    {
+        "nombre" : "Rodolfo Aguilera",
+        "especialidad" : "Oftalmólogo" 
+    },
+    {
+        "nombre" : "Albert Caballero",
+        "especialidad" : "Cardiólogo" 
+    }
+    
+    
+]
